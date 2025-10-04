@@ -1,4 +1,4 @@
-package com.example.finalprojectidnp
+package com.example.tiendaidnp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

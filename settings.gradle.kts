@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FinalProjectIDNP"
+rootProject.name = "TiendaIDNP"
 include(":app")
  

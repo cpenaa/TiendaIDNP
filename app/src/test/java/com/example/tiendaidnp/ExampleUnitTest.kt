@@ -1,4 +1,4 @@
-package com.example.finalprojectidnp
+package com.example.tiendaidnp
 
 import org.junit.Test
 
