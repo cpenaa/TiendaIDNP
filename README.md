@@ -23,6 +23,7 @@ GamarraAQP es una app de ejemplo de e-commerce para venta de ropa, desarrollada 
 
 ## Estructura del proyecto
 
+```
 app/
 └─ java/com/example/tiendaidnp/
 │   ├─ ui/
@@ -38,6 +39,7 @@ app/
 res/
 ├─ drawable/                  # Imágenes y vectores (webp, xml)
 └─ values/                     # Colores, themes, strings
+```
 
 ---
 
