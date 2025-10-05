@@ -12,6 +12,8 @@ compose-compiler = "1.5.14"         # kotlinCompilerExtensionVersion (ajusta si 
 junit = "4.13.2"
 androidx-junit = "1.1.5"
 espresso-core = "3.5.1"
+navigation-runtime-ktx = "2.9.5"
+navigation-compose = "2.9.5"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
@@ -40,3 +42,5 @@ androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-mani
 junit                           = { module = "junit:junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigation-runtime-ktx" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
