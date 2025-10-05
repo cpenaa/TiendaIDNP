@@ -1,46 +1,77 @@
-# JetPackComposeTemplate
-Jetpack Compose Template
+# GamarraAQP - Tienda de Ropa
 
-# ComposeTemplate - Proyecto Base Jetpack Compose
+GamarraAQP es una app de ejemplo de e-commerce para venta de ropa, desarrollada en Android Studio usando Jetpack Compose y Material3. La app permite navegar entre pantallas, ver productos con imagen, precio y etiqueta de oferta, soporta modo claro y oscuro, y se adapta a distintos tamaños de pantalla y orientación.
 
-Este repositorio contiene un proyecto base de Jetpack Compose para Android, pensado como plantilla para nuevos proyectos. Incluye la configuracion minima para iniciar rapidamente con Compose, Material3 y estructura moderna de Android Studio.
+---
+
+## Características principales
+
+- Pantalla principal con título, subtítulo, imagen de portada y botón de navegación
+- Navegación entre pantallas usando Jetpack Compose Navigation
+- Lista de productos con:
+    - Imagen del producto
+    - Nombre y precio
+    - Badge "En oferta" cuando corresponda
+    - Contenedores con borde y esquinas redondeadas
+- Diseño responsivo para tablet y teléfono
+- Soporte de modo claro y oscuro usando MaterialTheme
+- Uso de Surface para consistencia de fondo entre pantallas
+- Botones con iconos y texto alineado correctamente
+- Tipografía y colores definidos en Theme.kt
 
 ---
 
 ## Estructura del proyecto
 
-- app/ - Codigo fuente de la aplicacion
-    - MainActivity.kt - Actividad principal usando Compose
-    - ui/ - Componentes y pantallas de Compose (puedes crear subcarpetas para organizar tus UI)
-- build.gradle.kts - Configuracion de Gradle con Compose y dependencias actualizadas
-- libs.versions.toml - Dependencias centralizadas
-- README.md y LICENSE - Informacion y licencia del proyecto
+app/
+└─ java/com/example/tiendaidnp/
+│   ├─ ui/
+│   │   ├─ screens/           # Pantallas de la app (Productos, Principal, etc.)
+│   │   ├─ components/        # Componentes reutilizables (ProductoItem, TopBar, BottomBar)
+│   │   └─ navigation/        # AppNavigation.kt
+│   ├─ model/
+│   │   └─ Producto.kt        # Data class Producto
+│   └─ theme/
+│       ├─ Color.kt
+│       ├─ Theme.kt
+│       └─ Type.kt
+res/
+├─ drawable/                  # Imágenes y vectores (webp, xml)
+└─ values/                     # Colores, themes, strings
 
 ---
 
-## Como usar esta plantilla
+## Cómo ejecutar
 
-1. Haz click en Use this template en GitHub para crear un nuevo repositorio basado en este proyecto
-2. Clona el nuevo repositorio a tu maquina:
-
-   git clone https://github.com/tu-usuario/NuevoProyecto.git
-
-3. Abre el proyecto en Android Studio
-4. Sincroniza Gradle (Sync Project) para asegurarte que todas las dependencias se descarguen
-5. Empieza a desarrollar tu aplicacion usando Jetpack Compose
+1. Clonar el repositorio:
+   git clone https://github.com/cpenaa/TiendaIDNP.git
+2. Abrir el proyecto en Android Studio
+3. Compilar y ejecutar en un emulador o dispositivo físico
+4. Probar modo claro y oscuro
+5. Probar distintas orientaciones y tamaños de pantalla
 
 ---
 
-## Dependencias incluidas
+## Dependencias principales
 
-- Kotlin 1.9.x
-- Jetpack Compose (Material3)
-- AndroidX Core, Lifecycle y Activity Compose
-- Configuracion de Gradle con Compose BOM
-- Dependencias para tests y debugging
+- Jetpack Compose
+- Material3
+- Navigation Compose
 
 ---
 
-## Licencia
+## Contribuciones
 
-Este proyecto esta bajo la licencia MIT License. Puedes reutilizarlo libremente en tus propios proyectos
+Este proyecto sirve como plantilla base de e-commerce. Mejoras posibles:
+- Mejorar soporte responsivo y grid dinámico
+- ...
+
+---
+
+## Integrantes del proyecto (En construcción)
+
+- **Christian Peña** - Arquitectura, integración de datos y diseño responsivo
+- **Nombre Apellido** - Desarrollo de UI y navegación con Jetpack Compose
+- **Nombre Apellido** - Soporte de tema, pruebas en distintos dispositivos y optimización de layouts
+
+Cada integrante contribuyó en las distintas áreas del proyecto según su especialidad, colaborando en el diseño y funcionalidad de la aplicación.
