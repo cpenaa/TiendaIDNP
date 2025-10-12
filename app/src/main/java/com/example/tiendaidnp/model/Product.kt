@@ -2,9 +2,9 @@ package com.example.tiendaidnp.model
 
 import androidx.annotation.DrawableRes
 
-data class Producto(
-    val nombre: String,
+data class Product(
+    val name: String,
     @DrawableRes val imagenId: Int,
-    val precio: Double,
-    val enOferta: Boolean
+    val price: Double,
+    val inOffer: Boolean
 )

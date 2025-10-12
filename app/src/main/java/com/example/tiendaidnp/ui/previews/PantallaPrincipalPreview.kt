@@ -1,12 +1,12 @@
-package com.example.tiendaidnp.screens.pantallaPrincipal
+package com.example.tiendaidnp.ui.previews
 
 import android.content.res.Configuration
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.tiendaidnp.OrientationAwareScreen
-import com.example.tiendaidnp.PantallaPrincipal
-import com.example.tiendaidnp.ResponsiveScreen
-import com.example.tiendaidnp.ui.theme.TuAppTheme
+import com.example.tiendaidnp.ui.screens.OrientationAwareScreen
+import com.example.tiendaidnp.ui.screens.PantallaPrincipal
+import com.example.tiendaidnp.ui.screens.ResponsiveScreen
+import com.example.tiendaidnp.theme.TuAppTheme
 
 @Preview(
     name = "Phone - Light",

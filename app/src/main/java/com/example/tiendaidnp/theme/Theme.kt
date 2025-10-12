@@ -1,4 +1,4 @@
-package com.example.tiendaidnp.ui.theme
+package com.example.tiendaidnp.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -13,13 +13,27 @@ import androidx.compose.ui.platform.LocalContext
 private val DarkColorScheme = darkColorScheme(
     primary = Pink40,
     secondary = Pink80,
-    tertiary = Pink10
+    tertiary = Pink10,
+    background = black,
+    onBackground = Pink20,
+    surface = Neutral50,
+    surfaceVariant = Pink50,
+    outline = Neutral30,
+    primaryContainer = Pink20,
+    outlineVariant = white
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Pink40,
     secondary = Pink10,
-    tertiary = Pink80
+    tertiary = Pink80,
+    background = white,
+    onBackground = Pink80,
+    surface = Neutral50,
+    surfaceVariant = Pink50,
+    outline = Neutral30,
+    primaryContainer = Pink20,
+    outlineVariant = black
 )
 
 @Composable
