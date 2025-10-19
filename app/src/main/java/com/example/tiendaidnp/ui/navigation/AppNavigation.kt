@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.tiendaidnp.ui.screens.AnimatedCircleScreen
 import com.example.tiendaidnp.ui.screens.PantallaPrincipal
 import com.example.tiendaidnp.ui.screens.PerfilScreen
 import com.example.tiendaidnp.ui.screens.ProductsScreen
@@ -15,6 +16,7 @@ object Routes {
     const val PRODUCTS = "productos"
     const val PROFILE = "perfil"
     const val CONTACT = "contacto"
+    const val ANIMATED_CIRCLE = "animated_circle"
 }
 @Composable
 fun AppNavigation() {
@@ -44,6 +46,10 @@ fun AppNavigation() {
             ContactFormScreen(
                 onNavigateBack = { navController.popBackStack() }
             )
+        }
+
+        composable(Routes.ANIMATED_CIRCLE) {
+            AnimatedCircleScreen()
         }
     }
 }
