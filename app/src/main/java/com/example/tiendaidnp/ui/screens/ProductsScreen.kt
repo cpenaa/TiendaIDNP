@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.*
+import androidx.navigation.NavController
 import com.example.tiendaidnp.R
 import com.example.tiendaidnp.model.Product
 import com.example.tiendaidnp.ui.components.ProductsTopBar
@@ -15,7 +16,7 @@ import com.example.tiendaidnp.ui.components.ProductsBottomBar
 import com.example.tiendaidnp.ui.components.ProductItem
 
 @Composable
-fun ProductsScreen(onNavigate: (String) -> Unit) {
+fun ProductsScreen(navController: NavController) {
     val products = listOf(
         Product("Producto 1", R.drawable.product_1, 25.50, inOffer = true),
         Product("Producto 2", R.drawable.product_2, 40.00, inOffer = false),
@@ -25,11 +26,7 @@ fun ProductsScreen(onNavigate: (String) -> Unit) {
     Scaffold(
         topBar = { ProductsTopBar() },
         bottomBar = {
-            ProductsBottomBar(
-                selectedIndex = 0,
-                onItemSelected = {},
-                onNavigate = onNavigate // 👈 Reenvía el callback
-            )
+            ProductsBottomBar(navController = navController)
         }
     ) { innerPadding ->
         LazyVerticalGrid(

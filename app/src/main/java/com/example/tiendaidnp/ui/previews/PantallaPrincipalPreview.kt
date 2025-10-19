@@ -18,7 +18,7 @@ import com.example.tiendaidnp.theme.TuAppTheme
 @Composable
 fun PreviewPantallaPrincipalLight() {
     TuAppTheme(darkTheme = false) {
-        PantallaPrincipal(onNavigate = { })
+        PantallaPrincipal(navController = TODO())
     }
 }
 @Preview(
@@ -31,7 +31,7 @@ fun PreviewPantallaPrincipalLight() {
 @Composable
 fun PreviewPantallaPrincipalDark() {
     TuAppTheme(darkTheme = true) {
-        PantallaPrincipal(onNavigate = { })
+        PantallaPrincipal(navController = TODO())
     }
 }
 @Preview(
@@ -44,7 +44,7 @@ fun PreviewPantallaPrincipalDark() {
 @Composable
 fun PreviewPantallaPrincipalTabletDark() {
     TuAppTheme(darkTheme = true) {
-        PantallaPrincipal(onNavigate = { })
+        PantallaPrincipal(navController = TODO())
     }
 }
 @Preview(
@@ -58,7 +58,7 @@ fun PreviewPantallaPrincipalTabletDark() {
 @Composable
 fun PreviewPantallaPrincipalLargeFont() {
     TuAppTheme(darkTheme = false) {
-        PantallaPrincipal(onNavigate = { })
+        PantallaPrincipal(navController = TODO())
     }
 }
 

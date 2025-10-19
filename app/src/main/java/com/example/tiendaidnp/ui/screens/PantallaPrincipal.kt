@@ -21,13 +21,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.tiendaidnp.R
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
 
 @Composable
-fun PantallaPrincipal(
-    onNavigate: (String) -> Unit
-) {
+fun PantallaPrincipal(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,7 +57,7 @@ fun PantallaPrincipal(
         PrimaryButton(
             text = "Empezar",
             icon = true,
-            onClick = { onNavigate("productos") }
+            onClick = { navController.navigate("productos") }
         )
 //        Button(onClick = { onNavigate("productos") }) {
 //            Row(
@@ -89,7 +88,7 @@ fun ResponsiveScreen() {
 
     if (screenWidth < 600) {
         // teléfono
-        PantallaPrincipal(onNavigate = { })
+        PantallaPrincipal(navController = TODO())
     } else {
         // tablet
         Row(
@@ -97,7 +96,7 @@ fun ResponsiveScreen() {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            PantallaPrincipal(onNavigate = { })
+            PantallaPrincipal(navController = TODO())
             Text("Vista previa del carrito")
         }
     }
@@ -110,11 +109,11 @@ fun OrientationAwareScreen() {
 
     if (orientation == Configuration.ORIENTATION_PORTRAIT) {
         Column {
-            PantallaPrincipal(onNavigate = { })
+            PantallaPrincipal(navController = TODO())
         }
     } else {
         Row {
-            PantallaPrincipal(onNavigate = { })
+            PantallaPrincipal(navController = TODO())
         }
     }
 }

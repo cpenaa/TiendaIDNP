@@ -12,6 +12,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.tiendaidnp.R
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
 import com.example.tiendaidnp.ui.components.ProductsBottomBar
@@ -21,15 +22,11 @@ import com.example.tiendaidnp.ui.components.buttons.ButtonType
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PerfilScreen(onNavigate: (String) -> Unit) {
+fun PerfilScreen(navController: NavController) {
     Scaffold(
         topBar = { ProductsTopBar() },
         bottomBar = {
-            ProductsBottomBar(
-                selectedIndex = 0,
-                onItemSelected = {},
-                onNavigate = onNavigate
-            )
+            ProductsBottomBar(navController = navController)
         }
     ) { innerPadding ->
         Column(
@@ -92,7 +89,7 @@ fun PerfilScreen(onNavigate: (String) -> Unit) {
                     items = listOf("Centro de ayuda", "Contáctanos"),
                     onItemClick = { item ->
                         if (item == "Contáctanos") {
-                            onNavigate("contacto")
+                            navController.navigate("contacto")
                         }
                     }
                 )

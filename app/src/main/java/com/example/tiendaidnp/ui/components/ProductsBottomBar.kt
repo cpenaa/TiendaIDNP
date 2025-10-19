@@ -1,37 +1,44 @@
 package com.example.tiendaidnp.ui.components
 
+import android.widget.Toast
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.tiendaidnp.R
+import com.example.tiendaidnp.ui.navigation.Routes
 
 @Composable
-fun ProductsBottomBar(
-    selectedIndex: Int,
-    onItemSelected: (Int) -> Unit,
-    onNavigate: (String) -> Unit
-) {
-//    val selectedIndex = remember { mutableStateOf(0) }
+fun ProductsBottomBar(navController: NavController) {
+    val context = LocalContext.current
+
+    // Observa la ruta actual y usa un fallback al inicio
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route ?: Routes.HOME
+
+    val items = listOf(
+        Routes.PRODUCTS to R.drawable.home,
+        "favoritos" to R.drawable.favorite,
+        "carrito" to R.drawable.cart,
+        Routes.PROFILE to R.drawable.config
+    )
+
+    val implementedRoutes = listOf(Routes.PRODUCTS, Routes.PROFILE)
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.background)
-            .padding(horizontal = 0.dp, vertical = 0.dp)
     ) {
         Box(
             modifier = Modifier
@@ -39,30 +46,28 @@ fun ProductsBottomBar(
                 .height(1.dp)
                 .background(MaterialTheme.colorScheme.outline)
         )
+
         NavigationBar(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 0.dp)
                 .height(56.dp),
             containerColor = Color.Transparent,
             tonalElevation = 0.dp
         ) {
-            val items = listOf(
-                R.drawable.home to "Inicio",
-                R.drawable.favorite to "Favoritos",
-                R.drawable.cart to "Carrito",
-                R.drawable.config to "Ajustes"
-            )
-
-            items.forEachIndexed { index, (iconId, label) ->
-                val selected = selectedIndex == index
+            items.forEach { (route, iconId) ->
+                val selected = currentRoute == route
 
                 NavigationBarItem(
                     selected = selected,
                     onClick = {
-                        onItemSelected(index)
-                        if (label == "Ajustes") {
-                            onNavigate("perfil")
+                        if (implementedRoutes.contains(route)) {
+                            navController.navigate(route) {
+                                popUpTo(navController.graph.startDestinationId) { saveState = true }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        } else {
+                            Toast.makeText(context, "Pantalla en desarrollo", Toast.LENGTH_SHORT).show()
                         }
                     },
                     icon = {
@@ -81,7 +86,7 @@ fun ProductsBottomBar(
                         ) {
                             Icon(
                                 painter = painterResource(id = iconId),
-                                contentDescription = label,
+                                contentDescription = route,
                                 tint = if (selected)
                                     MaterialTheme.colorScheme.surfaceVariant
                                 else
@@ -96,5 +101,4 @@ fun ProductsBottomBar(
             }
         }
     }
-
 }

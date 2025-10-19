@@ -15,6 +15,7 @@ espresso-core = "3.5.1"
 navigation-runtime-ktx = "2.9.5"
 navigation-compose = "2.9.5"
 runtime = "1.9.3"
+compose-navigation = "1.5.3"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
@@ -46,3 +47,4 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigation-runtime-ktx" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
+androidx-compose-navigation = { group = "androidx.wear.compose", name = "compose-navigation", version.ref = "compose-navigation" }

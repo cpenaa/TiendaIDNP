@@ -10,43 +10,37 @@ import com.example.tiendaidnp.ui.screens.PerfilScreen
 import com.example.tiendaidnp.ui.screens.ProductsScreen
 import com.example.tiendaidnp.ui.screens.ContactFormScreen
 
+object Routes {
+    const val HOME = "inicio"
+    const val PRODUCTS = "productos"
+    const val PROFILE = "perfil"
+    const val CONTACT = "contacto"
+}
 @Composable
 fun AppNavigation() {
     val navController: NavHostController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = "pantalla_principal"
+        startDestination = Routes.HOME
     ) {
         // Pantalla inicial
-        composable("pantalla_principal") {
-            PantallaPrincipal(
-                onNavigate = { route ->
-                    navController.navigate(route)
-                }
-            )
+        composable(Routes.HOME) {
+            PantallaPrincipal(navController = navController)
         }
 
         // Pantalla de productos
-        composable("productos") {
-            ProductsScreen(
-                onNavigate = { route ->
-                    navController.navigate(route)
-                }
-            )
+        composable(Routes.PRODUCTS) {
+            ProductsScreen(navController = navController)
         }
 
         // Pantalla de Perfil
-        composable("perfil") {
-            PerfilScreen(
-                onNavigate = { route ->
-                    navController.navigate(route)
-                }
-            )
+        composable(Routes.PROFILE) {
+            PerfilScreen(navController = navController)
         }
 
         // Pantalla de Contacto
-        composable("contacto") {
+        composable(Routes.CONTACT) {
             ContactFormScreen(
                 onNavigateBack = { navController.popBackStack() }
             )

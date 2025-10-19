@@ -39,7 +39,9 @@ fun PrimaryButton(
         ) {
             if (icon) {
                 Image(
-                    painter = painterResource(id = com.example.tiendaidnp.R.drawable.right_arrow),
+                    painter = painterResource(
+                        id = com.example.tiendaidnp.R.drawable.right_arrow
+                    ),
                     contentDescription = "Flecha"
                 )
                 Spacer(modifier = Modifier.width(8.dp))
