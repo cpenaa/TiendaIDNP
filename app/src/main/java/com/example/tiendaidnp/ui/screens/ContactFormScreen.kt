@@ -8,11 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +32,17 @@ import com.example.tiendaidnp.ui.components.buttons.ButtonType
 fun ContactFormScreen(
     onNavigateBack: () -> Unit
 ) {
+    var nombre by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var asunto by remember { mutableStateOf("") }
+    var mensaje by remember { mutableStateOf("") }
+
+    // Estado para controlar el diálogo
+    var showDialog by remember { mutableStateOf(false) }
+
+    // Verificar si el formulario está completo
+    val isFormValid = nombre.isNotBlank() && email.isNotBlank() && asunto.isNotBlank() && mensaje.isNotBlank()
+
     Scaffold(
         topBar = {
             TitleBackTopBar(
@@ -45,56 +58,40 @@ fun ContactFormScreen(
                 .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            var nombre by remember { mutableStateOf("") }
-            var email by remember { mutableStateOf("") }
-            var asunto by remember { mutableStateOf("") }
-            var mensaje by remember { mutableStateOf("") }
-
-            Text(
-                text = "Nombre",
-                style = MaterialTheme.typography.displayMedium
-            )
+            Text("Nombre", style = MaterialTheme.typography.displayMedium)
             OutlinedTextField(
                 value = nombre,
                 onValueChange = { nombre = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(42.dp),
-                textStyle = MaterialTheme.typography.displayMedium,
-                singleLine = true
+                singleLine = true,
+                textStyle = MaterialTheme.typography.displayMedium
             )
 
-            Text(
-                text = "Email",
-                style = MaterialTheme.typography.displayMedium
-            )
+            Text("Email", style = MaterialTheme.typography.displayMedium)
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(42.dp),
-                singleLine = true
+                singleLine = true,
+                textStyle = MaterialTheme.typography.displayMedium
             )
 
-            Text(
-                text = "Asunto",
-                style = MaterialTheme.typography.displayMedium
-            )
+            Text("Asunto", style = MaterialTheme.typography.displayMedium)
             OutlinedTextField(
                 value = asunto,
                 onValueChange = { asunto = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(42.dp),
-                textStyle = MaterialTheme.typography.displayMedium,
-                singleLine = true
+                singleLine = true,
+                textStyle = MaterialTheme.typography.displayMedium
             )
 
-            Text(
-                text = "Mensaje",
-                style = MaterialTheme.typography.displayMedium
-            )
+            Text("Mensaje", style = MaterialTheme.typography.displayMedium)
             OutlinedTextField(
                 value = mensaje,
                 onValueChange = { mensaje = it },
@@ -117,11 +114,25 @@ fun ContactFormScreen(
                     text = "Enviar",
                     icon = true,
                     type = ButtonType.SLIM,
-                    onClick = {
-                        // TODO: Manejar envío del formulario
-                    }
+                    onClick = { showDialog = true },
+                    enabled = isFormValid // 🔹 Solo activo cuando el formulario está completo
                 )
             }
         }
     }
+
+    // 🔹 Alerta de confirmación
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            confirmButton = {
+                TextButton(onClick = { showDialog = false }) {
+                    Text("Aceptar")
+                }
+            },
+            title = { Text("Formulario enviado") },
+            text = { Text("Gracias, ${nombre.trim()}.\nTu mensaje ha sido enviado correctamente.") }
+        )
+    }
 }
+

@@ -58,7 +58,7 @@ fun PantallaPrincipal(navController: NavController) {
         PrimaryButton(
             text = "Empezar",
             icon = true,
-            onClick = { navController.navigate(Routes.ANIMATED_CIRCLE) }
+            onClick = { navController.navigate(Routes.PRODUCTS) }
         )
 //        Button(onClick = { onNavigate("productos") }) {
 //            Row(
