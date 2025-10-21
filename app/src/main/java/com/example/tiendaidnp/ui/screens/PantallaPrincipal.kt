@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.tiendaidnp.R
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
+import com.example.tiendaidnp.ui.navigation.Routes
 
 @Composable
 fun PantallaPrincipal(navController: NavController) {
@@ -57,7 +58,7 @@ fun PantallaPrincipal(navController: NavController) {
         PrimaryButton(
             text = "Empezar",
             icon = true,
-            onClick = { navController.navigate("productos") }
+            onClick = { navController.navigate(Routes.PRODUCTS) }
         )
 //        Button(onClick = { onNavigate("productos") }) {
 //            Row(
