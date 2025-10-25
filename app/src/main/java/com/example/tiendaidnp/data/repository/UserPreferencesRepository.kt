@@ -1,4 +1,4 @@
-package com.example.tiendaidnp.data
+package com.example.tiendaidnp.data.repository
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit

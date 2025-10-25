@@ -12,7 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.tiendaidnp.R
-import com.example.tiendaidnp.data.UserPreferencesRepository
+import com.example.tiendaidnp.data.repository.UserPreferencesRepository
 import com.example.tiendaidnp.data.model.UserProfile
 import com.example.tiendaidnp.ui.components.TitleBackTopBar
 import com.example.tiendaidnp.ui.navigation.Routes

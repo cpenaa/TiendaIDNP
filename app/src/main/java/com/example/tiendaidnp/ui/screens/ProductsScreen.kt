@@ -8,37 +8,66 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.*
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.tiendaidnp.R
-import com.example.tiendaidnp.data.model.Product
+import com.example.tiendaidnp.ui.components.FilterBar
 import com.example.tiendaidnp.ui.components.ProductsTopBar
 import com.example.tiendaidnp.ui.components.ProductsBottomBar
 import com.example.tiendaidnp.ui.components.ProductItem
+import com.example.tiendaidnp.ui.viewmodel.ProductsViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProductsScreen(navController: NavController) {
-    val products = listOf(
-        Product("Producto 1", R.drawable.product_1, 25.50, inOffer = true),
-        Product("Producto 2", R.drawable.product_2, 40.00, inOffer = false),
-        Product("Producto 3", R.drawable.product_3, 15.99, inOffer = true)
-    )
+fun ProductsScreen(
+    navController: NavController,
+    viewModel: ProductsViewModel = viewModel()
+) {
+    // Estado del ViewModel
+    val products by viewModel.products.collectAsState()
+
+    // Filtro de categoría
+    var selectedCategory by remember { mutableStateOf("Todos") }
 
     Scaffold(
         topBar = { ProductsTopBar() },
-        bottomBar = {
-            ProductsBottomBar(navController = navController)
-        }
+        bottomBar = { ProductsBottomBar(navController = navController) }
     ) { innerPadding ->
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+
+        Column(
             modifier = Modifier
                 .padding(innerPadding)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+                .fillMaxSize()
+                .padding(12.dp)
         ) {
-            items(products) { product ->
-                ProductItem(product)
+            // Barra de filtros
+            FilterBar(
+                selectedCategory = selectedCategory,
+                onCategorySelected = { selectedCategory = it }
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Lista dinámica de productos
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                val filteredProducts = if (selectedCategory == "Todos") {
+                    products
+                } else {
+                    products.filter { it.category == selectedCategory }
+                }
+
+                items(filteredProducts) { product ->
+                    ProductItem(product)
+                }
             }
         }
     }

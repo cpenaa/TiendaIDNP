@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.navigation)
+    implementation(libs.androidx.ui.graphics)
 
     // Tests
     testImplementation(libs.junit)

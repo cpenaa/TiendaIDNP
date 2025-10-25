@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.tiendaidnp.R
-import com.example.tiendaidnp.data.UserPreferencesRepository
+import com.example.tiendaidnp.data.repository.UserPreferencesRepository
 import com.example.tiendaidnp.data.model.UserProfile
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
 import com.example.tiendaidnp.ui.components.ProductsBottomBar
