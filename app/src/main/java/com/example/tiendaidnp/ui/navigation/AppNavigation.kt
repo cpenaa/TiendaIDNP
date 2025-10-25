@@ -9,12 +9,14 @@ import com.example.tiendaidnp.ui.screens.PantallaPrincipal
 import com.example.tiendaidnp.ui.screens.PerfilScreen
 import com.example.tiendaidnp.ui.screens.ProductsScreen
 import com.example.tiendaidnp.ui.screens.ContactFormScreen
+import com.example.tiendaidnp.ui.screens.EditProfileScreen
 
 object Routes {
     const val HOME = "inicio"
     const val PRODUCTS = "productos"
     const val PROFILE = "perfil"
     const val CONTACT = "contacto"
+    const val EDIT_PROFILE = "edit_profile"
 }
 @Composable
 fun AppNavigation() {
@@ -24,7 +26,7 @@ fun AppNavigation() {
         navController = navController,
         startDestination = Routes.HOME
     ) {
-        // Pantalla inicial
+        // Pantalla Inicial
         composable(Routes.HOME) {
             PantallaPrincipal(navController = navController)
         }
@@ -45,5 +47,15 @@ fun AppNavigation() {
                 onNavigateBack = { navController.popBackStack() }
             )
         }
+
+        // Pantalla de Edición de Perfil
+        composable(Routes.EDIT_PROFILE) {
+            EditProfileScreen(
+                navController = navController,
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
+
+
     }
 }

@@ -6,23 +6,38 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.tiendaidnp.R
+import com.example.tiendaidnp.data.UserPreferencesRepository
+import com.example.tiendaidnp.data.model.UserProfile
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
 import com.example.tiendaidnp.ui.components.ProductsBottomBar
 import com.example.tiendaidnp.ui.components.ProductsTopBar
 import com.example.tiendaidnp.ui.components.ScreenTitle
 import com.example.tiendaidnp.ui.components.buttons.ButtonType
+import com.example.tiendaidnp.ui.navigation.Routes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PerfilScreen(navController: NavController) {
+    val context = LocalContext.current
+    val userRepo = remember { UserPreferencesRepository(context) }
+
+    // Escuchar los cambios del perfil almacenado
+    val userProfile by userRepo.userProfileFlow.collectAsState(
+        initial = UserProfile("", "", "", "", "", "")
+    )
+
     Scaffold(
         topBar = { ProductsTopBar() },
         bottomBar = {
@@ -56,21 +71,24 @@ fun PerfilScreen(navController: NavController) {
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = "Gabriela Fernandez",
+                        text = "${userProfile.name} ${userProfile.lastname}",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.outlineVariant
                     )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Icon(
-                        painter = painterResource(id = R.drawable.edit),
-                        contentDescription = "Editar perfil",
-                        modifier = Modifier
-                            .size(18.dp)
-                            .alpha(0.5f)
-                    )
+                    IconButton(
+                        onClick = { navController.navigate(Routes.EDIT_PROFILE) }
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.edit),
+                            contentDescription = "Editar perfil",
+                            modifier = Modifier
+                                .size(18.dp)
+                                .alpha(0.5f)
+                        )
+                    }
                 }
                 Text(
-                    text = "gabriela.fernandez@gmail.com",
+                    text = userProfile.email,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.surface
                 )

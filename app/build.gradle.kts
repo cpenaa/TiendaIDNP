@@ -56,6 +56,9 @@ dependencies {
     // Compose BOM (para unificar versiones)
     implementation(platform(libs.androidx.compose.bom))
 
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+
     // UI
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)

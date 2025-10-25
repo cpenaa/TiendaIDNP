@@ -1,4 +1,5 @@
 [versions]
+datastore-preferences = "1.1.7"
 kotlin = "1.9.24"
 android-gradle-plugin = "8.11.2"
 
@@ -25,6 +26,7 @@ kotlin-android     = { id = "org.jetbrains.kotlin.android", version.ref = "kotli
 [libraries]
 # Core AndroidX (las claves usan guiones y por eso se acceden como libs.androidx.core.ktx)
 androidx-core-ktx                 = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version = "1.1.7" }
 androidx-lifecycle-runtime-ktx   = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime" }
 androidx-activity-compose        = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 

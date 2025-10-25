@@ -1,4 +1,4 @@
-package com.example.tiendaidnp.model
+package com.example.tiendaidnp.data.model
 
 import androidx.annotation.DrawableRes
 

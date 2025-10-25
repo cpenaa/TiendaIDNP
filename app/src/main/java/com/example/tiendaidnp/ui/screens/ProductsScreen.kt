@@ -10,7 +10,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.*
 import androidx.navigation.NavController
 import com.example.tiendaidnp.R
-import com.example.tiendaidnp.model.Product
+import com.example.tiendaidnp.data.model.Product
 import com.example.tiendaidnp.ui.components.ProductsTopBar
 import com.example.tiendaidnp.ui.components.ProductsBottomBar
 import com.example.tiendaidnp.ui.components.ProductItem
