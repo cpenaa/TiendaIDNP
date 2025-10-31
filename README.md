@@ -14,22 +14,30 @@ Este es un proyecto de Android para una aplicación de tienda online.
 
 El proyecto sigue una arquitectura de IU declarativa moderna de Android con Jetpack Compose. La estructura del proyecto está organizada de la siguiente manera:
 
-*   **`app/src/main/java/com/example/tiendaidnp`**: Este es el paquete principal de la aplicación.
-    *   **`data/`**: Este paquete contiene clases relacionadas con los datos.
-        *   **`model/`**: Este subpaquete contiene los modelos de datos, como la clase `UserProfile`.
-        *   **`datastore/`**: Este subpaquete se utiliza para el almacenamiento de datos locales.
-        *   **`repository/`**: Este subpaquete contiene repositorios, que se utilizan para abstraer las fuentes de datos.
-    *   **`ui/`**: Este paquete contiene las clases relacionadas con la interfaz de usuario.
-        *   **`screens/`**: Este subpaquete contiene las diferentes pantallas de la aplicación como Composables.
-        *   **`previews/`**: Este subpaquete contiene vistas previas de Composable para desarrollo y pruebas.
-        *   **`viewmodel/`**: Este subpaquete contiene los ViewModels, que contienen y administran datos relacionados con la interfaz de usuario.
-        *   **`components/`**: Este subpaquete contiene componentes de IU reutilizables.
-        *   **`navigation/`**: Este subpaquete gestiona la navegación entre pantallas.
-    *   **`theme/`**: Este paquete contiene la información de temas de la aplicación.
-        *   **`Color.kt`**: Define la paleta de colores.
-        *   **`Theme.kt`**: Define el tema de la aplicación.
-        *   **`Type.kt`**: Define la tipografía.
-    *   **`MainActivity.kt`**: Este es el punto de entrada principal de la aplicación.
+```
+app/
+└─ java/com/example/tiendaidnp/
+│   ├─ data/
+│   │   ├─ model/             # Este subpaquete contiene los modelos de datos, como la clase `UserProfile`.
+│   │   ├─ datastore/         # Este subpaquete se utiliza para el almacenamiento de datos locales.
+│   │   ├─ repository/        # Este subpaquete contiene repositorios, que se utilizan para abstraer las fuentes de datos.
+│   ├─ ui/                    # Este paquete contiene las clases relacionadas con la interfaz de usuario.
+│   │   ├─ screens/           # Pantallas de la app (Productos, Principal, etc.)
+│   │   ├─ previews/          # Este subpaquete contiene vistas previas de Composable para desarrollo y pruebas.
+│   │   ├─ viewmodel/         # Este subpaquete contiene los ViewModels, que contienen y administran datos relacionados con la interfaz de usuario.
+│   │   ├─ components/        # Componentes reutilizables (ProductoItem, TopBar, BottomBar)
+│   │   └─ navigation/        # AppNavigation.kt: Este subpaquete gestiona la navegación entre pantallas.
+│   ├─ model/
+│   │   └─ Producto.kt        # Data class Producto
+│   ├─ theme/
+│   │   ├─ Color.kt
+│   │   ├─ Theme.kt
+│   │   └─ Type.kt
+│   └─ MainActivity.kt
+res/
+├─ drawable/                  # Imágenes y vectores (webp, xml)
+└─ values/                     # Colores, themes, strings
+```
 
 ## Cómo construir
 
