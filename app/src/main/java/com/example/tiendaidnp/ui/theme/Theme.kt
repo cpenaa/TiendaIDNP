@@ -1,14 +1,16 @@
-package com.example.tiendaidnp.theme
+package com.example.tiendaidnp.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
+
+// Colores personalizados que ya definimos
+import com.example.tiendaidnp.ui.theme.CustomColorsDark
+import com.example.tiendaidnp.ui.theme.CustomColorsLight
+import com.example.tiendaidnp.ui.theme.LocalCustomColors
 
 private val DarkColorScheme = darkColorScheme(
     primary = Pink40,
@@ -39,37 +41,28 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun TuAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) {
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
-}
-
-@Composable
-fun FinalProjectIDNPTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    // Elegir esquema de colores base
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    // 🎨 Seleccionar la paleta personalizada correspondiente
+    val customColors = if (darkTheme) CustomColorsDark else CustomColorsLight
+
+    // 🧩 Proveer los custom colors al árbol de composición
+    CompositionLocalProvider(LocalCustomColors provides customColors) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
+    }
 }

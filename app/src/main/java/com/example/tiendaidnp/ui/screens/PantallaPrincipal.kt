@@ -2,6 +2,7 @@ package com.example.tiendaidnp.ui.screens
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,12 +26,15 @@ import androidx.navigation.NavController
 import com.example.tiendaidnp.R
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
 import com.example.tiendaidnp.ui.navigation.Routes
+import com.example.tiendaidnp.ui.theme.AppTheme
 
 @Composable
 fun PantallaPrincipal(navController: NavController) {
+    val colors = AppTheme.customColors
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(colors.white)
             .padding(0.dp, 16.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -39,13 +43,14 @@ fun PantallaPrincipal(navController: NavController) {
             text = "GamarraAQP",
             fontSize = 36.sp,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.tertiary,
+            color = colors.primary80,
             modifier = Modifier
                 .padding(8.dp)
         )
         Text(
             text = "Las mejores prendas a mejor precio",
-            fontSize = 16.sp
+            fontSize = 16.sp,
+            color = colors.black
         )
         Image(
             painter = painterResource(id = R.drawable.main_image),
@@ -60,25 +65,6 @@ fun PantallaPrincipal(navController: NavController) {
             icon = true,
             onClick = { navController.navigate(Routes.PRODUCTS) }
         )
-//        Button(onClick = { onNavigate("productos") }) {
-//            Row(
-//                verticalAlignment = Alignment.CenterVertically
-//            ) {
-//                Image(
-//                    painter = painterResource(id = R.drawable.right_arrow),
-//                    contentDescription = "Flecha"
-//                )
-//                Spacer(modifier = Modifier.width(8.dp))
-//                Text(
-//                    text = "Empezar",
-//                    fontSize = 16.sp,
-//                    fontWeight = FontWeight.Bold,
-//                    color = Color(0xFFFFFFFF),
-//                    modifier = Modifier
-//                        .padding(4.dp)
-//                )
-//            }
-//        }
     }
 }
 

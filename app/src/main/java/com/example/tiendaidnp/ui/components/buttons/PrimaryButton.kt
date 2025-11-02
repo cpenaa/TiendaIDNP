@@ -18,6 +18,9 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.tiendaidnp.ui.theme.AppTheme
+import com.example.tiendaidnp.ui.theme.Pink40
+import com.example.tiendaidnp.ui.theme.white
 
 @Composable
 fun PrimaryButton(
@@ -34,9 +37,9 @@ fun PrimaryButton(
 
     // 🔹 Colores del botón (activo e inactivo)
     val backgroundColor = if (enabled) {
-        MaterialTheme.colorScheme.primary
+        Pink40
     } else {
-        MaterialTheme.colorScheme.primary.copy(alpha = 0.4f)
+        Pink40.copy(alpha = 0.4f)
     }
 
     Button(
@@ -52,7 +55,7 @@ fun PrimaryButton(
                 Image(
                     painter = painterResource(id = com.example.tiendaidnp.R.drawable.right_arrow),
                     contentDescription = "Flecha",
-                    colorFilter = ColorFilter.tint(Color.White.copy(alpha = if (enabled) 1f else 0.6f))
+                    colorFilter = ColorFilter.tint(white.copy(alpha = if (enabled) 1f else 0.6f))
                 )
                 Spacer(modifier = Modifier.width(8.dp))
             }
@@ -60,7 +63,7 @@ fun PrimaryButton(
                 text = text,
                 style = MaterialTheme.typography.displayLarge,
                 fontWeight = FontWeight.Bold,
-                color = Color.White.copy(alpha = if (enabled) 1f else 0.6f)
+                color = white.copy(alpha = if (enabled) 1f else 0.6f)
             )
         }
     }

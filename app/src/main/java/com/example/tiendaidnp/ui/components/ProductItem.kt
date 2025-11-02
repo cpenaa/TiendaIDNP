@@ -27,26 +27,32 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.example.tiendaidnp.data.model.Product
+import com.example.tiendaidnp.ui.theme.AppTheme
+import com.example.tiendaidnp.ui.theme.Neutral50
+import com.example.tiendaidnp.ui.theme.black
+import com.example.tiendaidnp.ui.theme.white
 
 @Composable
 fun ProductItem(producto: Product) {
+    val colors = AppTheme.customColors
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .border(
                 width = 1.dp,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = colors.neutral50,
                 shape = RoundedCornerShape(12.dp)
             )
             .clip(RoundedCornerShape(12.dp))
-            .background(MaterialTheme.colorScheme.secondary),
+            .background(
+                if (producto.inOffer) colors.primary30 else colors.primary10),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Imagen del producto
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White)
+                .background(white)
                 .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
         ) {
             Image(
@@ -75,7 +81,7 @@ fun ProductItem(producto: Product) {
                 ) {
                     Text(
                         text = "En Oferta",
-                        color = Color.White,
+                        color = white,
                         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold)
                     )
                 }
@@ -87,15 +93,16 @@ fun ProductItem(producto: Product) {
         // Nombre del producto
         Text(
             text = producto.name,
-            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
-            color = MaterialTheme.colorScheme.tertiary
+            style = MaterialTheme.typography.bodyMedium,
+            color = if (producto.inOffer) colors.primary70 else colors.primary80
         )
 
         // Categoría (nuevo)
-        Text(
-            text = producto.category,
-            style = MaterialTheme.typography.bodySmall.copy(color = Color.Gray)
-        )
+//        Text(
+//            text = producto.category,
+//            style = MaterialTheme.typography.bodySmall,
+//            color = colors.primary60
+//        )
 
         Spacer(modifier = Modifier.height(4.dp))
 
@@ -107,14 +114,14 @@ fun ProductItem(producto: Product) {
             Text(
                 text = "S/ ${producto.price}",
                 style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
-                color = Color.Black
+                color = black
             )
 
             producto.oldPrice?.let { old ->
                 Text(
                     text = "S/ $old",
                     style = MaterialTheme.typography.bodySmall.copy(
-                        color = Color.Gray,
+                        color = Neutral50,
                         textDecoration = TextDecoration.LineThrough
                     )
                 )

@@ -11,14 +11,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.tiendaidnp.ui.theme.AppTheme
+import com.example.tiendaidnp.ui.theme.Neutral30
 
 @Composable
-fun ScreenTitle() {
+fun ScreenTitle(
+    title: String,
+) {
+    val colors = AppTheme.customColors
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(1.dp)
-            .background(MaterialTheme.colorScheme.outline)
+            .background(Neutral30)
     )
     Box(
         modifier = Modifier
@@ -27,8 +32,8 @@ fun ScreenTitle() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "Perfil",
-            style = MaterialTheme.typography.titleLarge,
+            text = title,
+            style = MaterialTheme.typography.titleLarge.copy(colors.primary80),
             fontWeight = FontWeight.Bold,
         )
 
@@ -37,6 +42,6 @@ fun ScreenTitle() {
         modifier = Modifier
             .fillMaxWidth()
             .height(1.dp)
-            .background(MaterialTheme.colorScheme.outline)
+            .background(Neutral30)
     )
 }

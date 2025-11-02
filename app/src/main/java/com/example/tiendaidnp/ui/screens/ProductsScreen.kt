@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material3.*
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -42,7 +42,7 @@ fun ProductsScreen(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .padding(12.dp)
+                .padding(24.dp, 0.dp)
         ) {
             // Barra de filtros
             FilterBar(
@@ -57,7 +57,7 @@ fun ProductsScreen(
                 columns = GridCells.Fixed(2),
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                horizontalArrangement = Arrangement.spacedBy(24.dp)
             ) {
                 val filteredProducts = if (selectedCategory == "Todos") {
                     products
@@ -65,8 +65,15 @@ fun ProductsScreen(
                     products.filter { it.category == selectedCategory }
                 }
 
-                items(filteredProducts) { product ->
-                    ProductItem(product)
+                itemsIndexed(filteredProducts) { index, product ->
+                    val verticalShift = if (index % 2 == 1) 40.dp else 0.dp // desfase en la 2da columna
+
+                    Box(
+                        modifier = Modifier
+                            .offset(y = verticalShift) // 👈 mueve visualmente sin afectar layout
+                    ) {
+                        ProductItem(product)
+                    }
                 }
             }
         }

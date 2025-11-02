@@ -26,10 +26,14 @@ import com.example.tiendaidnp.ui.components.ProductsTopBar
 import com.example.tiendaidnp.ui.components.ScreenTitle
 import com.example.tiendaidnp.ui.components.buttons.ButtonType
 import com.example.tiendaidnp.ui.navigation.Routes
+import com.example.tiendaidnp.ui.theme.AppTheme
+import com.example.tiendaidnp.ui.theme.Neutral30
+import com.example.tiendaidnp.ui.theme.Neutral50
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PerfilScreen(navController: NavController) {
+    val colors = AppTheme.customColors
     val context = LocalContext.current
     val userRepo = remember { UserPreferencesRepository(context) }
 
@@ -50,7 +54,7 @@ fun PerfilScreen(navController: NavController) {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ScreenTitle()
+            ScreenTitle("Perfil")
             // Imagen de perfil
             Column (
                 modifier = Modifier
@@ -73,7 +77,7 @@ fun PerfilScreen(navController: NavController) {
                     Text(
                         text = "${userProfile.name} ${userProfile.lastname}",
                         style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.outlineVariant
+                        color = colors.black
                     )
                     IconButton(
                         onClick = { navController.navigate(Routes.EDIT_PROFILE) }
@@ -90,7 +94,7 @@ fun PerfilScreen(navController: NavController) {
                 Text(
                     text = userProfile.email,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.surface
+                    color = Neutral50
                 )
                 Spacer(modifier = Modifier.height(24.dp))
                 // --- Secciones ---
@@ -115,7 +119,7 @@ fun PerfilScreen(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(1.dp)
-                        .background(MaterialTheme.colorScheme.outline)
+                        .background(Neutral30)
                 )
                 Box(
                     modifier = Modifier
@@ -141,6 +145,7 @@ fun PerfilSection(
     items: List<String>,
     onItemClick: (String) -> Unit = {}
 ) {
+    val colors = AppTheme.customColors
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -150,7 +155,7 @@ fun PerfilSection(
             text = title,
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.outlineVariant
+            color = colors.black
         )
         Spacer(modifier = Modifier.height(4.dp))
         items.forEach { item ->
@@ -161,7 +166,7 @@ fun PerfilSection(
                     .clickable { onItemClick(item) }
                     .padding(vertical = 8.dp),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.outlineVariant
+                color = colors.black
             )
         }
     }

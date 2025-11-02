@@ -12,15 +12,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.tiendaidnp.ui.theme.AppTheme
+import com.example.tiendaidnp.ui.theme.Neutral30
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,6 +28,7 @@ fun TitleBackTopBar(
     title: String,
     onBackClick: () -> Unit
 ) {
+    val colors = AppTheme.customColors
     CenterAlignedTopAppBar(
         title = {
             Text(
@@ -43,7 +44,7 @@ fun TitleBackTopBar(
                     modifier = Modifier
                         .size(36.dp) // Tamaño del fondo circular
                         .background(
-                            color = MaterialTheme.colorScheme.outline,
+                            color = Neutral30,
                             shape = CircleShape
                         ),
                     contentAlignment = Alignment.Center
@@ -51,15 +52,15 @@ fun TitleBackTopBar(
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Volver",
-                        tint = Color.White
+                        tint = colors.white
                     )
                 }
             }
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.background,
-            titleContentColor = MaterialTheme.colorScheme.onBackground,
-            navigationIconContentColor = MaterialTheme.colorScheme.onBackground
+            containerColor = colors.black,
+            titleContentColor = colors.primary80,
+            navigationIconContentColor = colors.primary80
         )
     )
 }

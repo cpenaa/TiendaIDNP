@@ -6,7 +6,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.tiendaidnp.ui.screens.OrientationAwareScreen
 import com.example.tiendaidnp.ui.screens.PantallaPrincipal
 import com.example.tiendaidnp.ui.screens.ResponsiveScreen
-import com.example.tiendaidnp.theme.TuAppTheme
+import com.example.tiendaidnp.ui.theme.TuAppTheme
 
 @Preview(
     name = "Phone - Light",
