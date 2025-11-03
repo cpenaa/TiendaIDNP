@@ -15,52 +15,52 @@ import com.example.tiendaidnp.ui.theme.TuAppTheme
     heightDp = 640,
     showBackground = true
 )
-@Composable
-fun PreviewPantallaPrincipalLight() {
-    TuAppTheme(darkTheme = false) {
-        PantallaPrincipal(navController = TODO())
-    }
-}
-@Preview(
-    name = "Phone - Dark",
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    widthDp = 360,
-    heightDp = 640,
-    showBackground = true
-)
-@Composable
-fun PreviewPantallaPrincipalDark() {
-    TuAppTheme(darkTheme = true) {
-        PantallaPrincipal(navController = TODO())
-    }
-}
-@Preview(
-    name = "Tablet - Dark",
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    widthDp = 800,
-    heightDp = 1280,
-    showBackground = true
-)
-@Composable
-fun PreviewPantallaPrincipalTabletDark() {
-    TuAppTheme(darkTheme = true) {
-        PantallaPrincipal(navController = TODO())
-    }
-}
-@Preview(
-    name = "Large Font",
-    uiMode = Configuration.UI_MODE_NIGHT_NO,
-    widthDp = 360,
-    heightDp = 640,
-    fontScale = 1.3f,
-    showBackground = true
-)
-@Composable
-fun PreviewPantallaPrincipalLargeFont() {
-    TuAppTheme(darkTheme = false) {
-        PantallaPrincipal(navController = TODO())
-    }
-}
+//@Composable
+//fun PreviewPantallaPrincipalLight() {
+//    TuAppTheme(darkTheme = false) {
+//        PantallaPrincipal(navController = TODO())
+//    }
+//}
+//@Preview(
+//    name = "Phone - Dark",
+//    uiMode = Configuration.UI_MODE_NIGHT_YES,
+//    widthDp = 360,
+//    heightDp = 640,
+//    showBackground = true
+//)
+//@Composable
+//fun PreviewPantallaPrincipalDark() {
+//    TuAppTheme(darkTheme = true) {
+//        PantallaPrincipal(navController = TODO())
+//    }
+//}
+//@Preview(
+//    name = "Tablet - Dark",
+//    uiMode = Configuration.UI_MODE_NIGHT_YES,
+//    widthDp = 800,
+//    heightDp = 1280,
+//    showBackground = true
+//)
+//@Composable
+//fun PreviewPantallaPrincipalTabletDark() {
+//    TuAppTheme(darkTheme = true) {
+//        PantallaPrincipal(navController = TODO())
+//    }
+//}
+//@Preview(
+//    name = "Large Font",
+//    uiMode = Configuration.UI_MODE_NIGHT_NO,
+//    widthDp = 360,
+//    heightDp = 640,
+//    fontScale = 1.3f,
+//    showBackground = true
+//)
+//@Composable
+//fun PreviewPantallaPrincipalLargeFont() {
+//    TuAppTheme(darkTheme = false) {
+//        PantallaPrincipal(navController = TODO())
+//    }
+//}
 
 @Preview(
     name = "Responsive - Phone",

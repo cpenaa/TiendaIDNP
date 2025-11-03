@@ -31,7 +31,6 @@ data class CustomColors(
     )
 
 // Paletas personalizadas para los temas claro y oscuro
-
 val CustomColorsLight = CustomColors(
     primary10 = Pink10,
     primary20 = Pink20,

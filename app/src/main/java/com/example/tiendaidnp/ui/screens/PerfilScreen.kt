@@ -104,14 +104,19 @@ fun PerfilScreen(navController: NavController) {
                 )
                 PerfilSection(
                     title = "Configuración",
-                    items = listOf("Método de pago", "Preferencias de usuario")
+                    items = listOf("Método de pago", "Preferencias de usuario"),
+                    onItemClick = { item ->
+                        if (item == "Preferencias de usuario") {
+                            navController.navigate(Routes.THEME_SETTINGS)
+                        }
+                    }
                 )
                 PerfilSection(
                     title = "Soporte y Ayuda",
                     items = listOf("Centro de ayuda", "Contáctanos"),
                     onItemClick = { item ->
                         if (item == "Contáctanos") {
-                            navController.navigate("contacto")
+                            navController.navigate(Routes.CONTACT)
                         }
                     }
                 )

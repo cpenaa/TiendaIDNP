@@ -6,6 +6,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
+import com.example.tiendaidnp.data.datastore.ThemeMode
 
 // Colores personalizados que ya definimos
 import com.example.tiendaidnp.ui.theme.CustomColorsDark
@@ -40,24 +41,28 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun TuAppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    themeMode: ThemeMode = ThemeMode.SYSTEM,
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    val isDarkTheme = when (themeMode) {
+        ThemeMode.LIGHT -> false
+        ThemeMode.DARK -> true
+        ThemeMode.SYSTEM -> isSystemInDarkTheme()
+    }
     // Elegir esquema de colores base
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (isDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        darkTheme -> DarkColorScheme
+        isDarkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+    // Seleccionar la paleta personalizada correspondiente
+    val customColors = if (isDarkTheme) CustomColorsDark else CustomColorsLight
 
-    // 🎨 Seleccionar la paleta personalizada correspondiente
-    val customColors = if (darkTheme) CustomColorsDark else CustomColorsLight
-
-    // 🧩 Proveer los custom colors al árbol de composición
+    // Proveer los custom colors al árbol de composición
     CompositionLocalProvider(LocalCustomColors provides customColors) {
         MaterialTheme(
             colorScheme = colorScheme,
