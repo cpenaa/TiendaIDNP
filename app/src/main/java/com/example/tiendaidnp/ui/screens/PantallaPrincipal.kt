@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -25,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.tiendaidnp.R
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
+import com.example.tiendaidnp.ui.navigation.AdminRoutes
 import com.example.tiendaidnp.ui.navigation.Routes
 import com.example.tiendaidnp.ui.theme.AppTheme
 
@@ -60,11 +62,23 @@ fun PantallaPrincipal(navController: NavController) {
                 .padding(0.dp, 16.dp),
             contentScale = ContentScale.FillWidth
         )
-        PrimaryButton(
-            text = "Empezar",
-            icon = true,
-            onClick = { navController.navigate(Routes.PRODUCTS) }
-        )
+        Box {
+            PrimaryButton(
+                text = "Admin",
+                icon = true,
+                onClick = { navController.navigate(AdminRoutes.PRODUCT_LIST) }
+            )
+        }
+        Box (
+            modifier = Modifier
+                .padding(top = 16.dp)
+        ) {
+            PrimaryButton(
+                text = "Empezar",
+                icon = true,
+                onClick = { navController.navigate(Routes.PRODUCTS) }
+            )
+        }
     }
 }
 

@@ -1,20 +1,10 @@
 package com.example.tiendaidnp.ui.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,8 +23,14 @@ import com.example.tiendaidnp.ui.theme.black
 import com.example.tiendaidnp.ui.theme.white
 
 @Composable
-fun ProductItem(producto: Product) {
+fun ProductItem(
+    producto: Product,
+    isAdmin: Boolean = false, // 👈 nuevo parámetro para habilitar modo admin
+    onEditClick: (Product) -> Unit = {},
+    onDeleteClick: (Product) -> Unit = {}
+) {
     val colors = AppTheme.customColors
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -45,7 +41,8 @@ fun ProductItem(producto: Product) {
             )
             .clip(RoundedCornerShape(12.dp))
             .background(
-                if (producto.inOffer) colors.primary30 else colors.primary10),
+                if (producto.inOffer) colors.primary30 else colors.primary10
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Imagen del producto
@@ -65,7 +62,7 @@ fun ProductItem(producto: Product) {
                 contentScale = ContentScale.Crop
             )
 
-            // Etiqueta de oferta (ahora más destacada y visual)
+            // Etiqueta de oferta
             if (producto.inOffer) {
                 Box(
                     modifier = Modifier
@@ -73,7 +70,7 @@ fun ProductItem(producto: Product) {
                         .padding(6.dp)
                         .background(
                             brush = Brush.horizontalGradient(
-                                colors = listOf(Color(0xFFFF7043), Color(0xFFD84315)) // degradado naranja-rojo
+                                colors = listOf(Color(0xFFFF7043), Color(0xFFD84315))
                             ),
                             shape = RoundedCornerShape(8.dp)
                         )
@@ -90,23 +87,16 @@ fun ProductItem(producto: Product) {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Nombre del producto
+        // Nombre
         Text(
             text = producto.name,
             style = MaterialTheme.typography.bodyMedium,
             color = if (producto.inOffer) colors.primary70 else colors.primary80
         )
 
-        // Categoría (nuevo)
-//        Text(
-//            text = producto.category,
-//            style = MaterialTheme.typography.bodySmall,
-//            color = colors.primary60
-//        )
-
         Spacer(modifier = Modifier.height(4.dp))
 
-        // Precio actual y anterior
+        // Precio
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(6.dp)
@@ -129,5 +119,28 @@ fun ProductItem(producto: Product) {
         }
 
         Spacer(modifier = Modifier.height(8.dp))
+
+        // Botones administrativos
+        if (isAdmin) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp, vertical = 4.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                OutlinedButton(onClick = { onEditClick(producto) }) {
+                    Text("Editar")
+                }
+                OutlinedButton(
+                    onClick = { onDeleteClick(producto) },
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = Color.Red
+                    )
+                ) {
+                    Text("Eliminar")
+                }
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+        }
     }
 }

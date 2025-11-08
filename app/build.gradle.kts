@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-//    alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -69,6 +69,18 @@ dependencies {
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.ui.graphics)
+
+    // 🆕 Room (Base de datos local)
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+
+    // 🆕 Coroutines (para flujos y ViewModels)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+    // 🆕 ViewModel para Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
 
     // Tests
     testImplementation(libs.junit)

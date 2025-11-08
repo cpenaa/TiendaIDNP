@@ -15,28 +15,23 @@ Este es un proyecto de Android para una aplicación de tienda online.
 El proyecto sigue una arquitectura de IU declarativa moderna de Android con Jetpack Compose. La estructura del proyecto está organizada de la siguiente manera:
 
 ```
-app/
-└─ java/com/example/tiendaidnp/
+app/src/main/
+├─ java/com/example/tiendaidnp/
 │   ├─ data/
-│   │   ├─ model/             # Este subpaquete contiene los modelos de datos, como la clase `UserProfile`.
-│   │   ├─ datastore/         # Este subpaquete se utiliza para el almacenamiento de datos locales.
-│   │   ├─ repository/        # Este subpaquete contiene repositorios, que se utilizan para abstraer las fuentes de datos.
-│   ├─ ui/                    # Este paquete contiene las clases relacionadas con la interfaz de usuario.
-│   │   ├─ screens/           # Pantallas de la app (Productos, Principal, etc.)
-│   │   ├─ previews/          # Este subpaquete contiene vistas previas de Composable para desarrollo y pruebas.
-│   │   ├─ viewmodel/         # Este subpaquete contiene los ViewModels, que contienen y administran datos relacionados con la interfaz de usuario.
-│   │   ├─ components/        # Componentes reutilizables (ProductoItem, TopBar, BottomBar)
-│   │   └─ navigation/        # AppNavigation.kt: Este subpaquete gestiona la navegación entre pantallas.
-│   ├─ model/
-│   │   └─ Producto.kt        # Data class Producto
-│   ├─ theme/
-│   │   ├─ Color.kt
-│   │   ├─ Theme.kt
-│   │   └─ Type.kt
-│   └─ MainActivity.kt
-res/
-├─ drawable/                  # Imágenes y vectores (webp, xml)
-└─ values/                     # Colores, themes, strings
+│   │   ├─ model/      # Modelos de datos (Product, UserProfile).
+│   │   ├─ repository/ # Repositorios para abstraer las fuentes de datos.
+│   │   └─ datastore/  # Almacenamiento de datos locales.
+│   ├─ ui/
+│   │   ├─ components/ # Componentes de UI reutilizables (items de producto, barras de navegación).
+│   │   ├─ navigation/ # Gestiona la navegación entre pantallas.
+│   │   ├─ screens/    # Composables para cada pantalla de la app (Home, Profile, etc.).
+│   │   ├─ theme/      # Tema de la aplicación (Color, Theme, Type).
+│   │   ├─ viewmodel/  # ViewModels que exponen el estado a la UI.
+│   │   └─ previews/   # Vistas previas para Composables.
+│   └─ MainActivity.kt # Punto de entrada principal de la UI.
+└─ res/
+   ├─ drawable/       # Imágenes, íconos y otros recursos gráficos.
+   └─ values/         # Archivos de recursos como strings, colors y themes.
 ```
 
 ## Cómo construir

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.example.tiendaidnp.ui.screens.PantallaPrincipal
 import com.example.tiendaidnp.ui.screens.PerfilScreen
@@ -72,7 +73,13 @@ fun AppNavigation() {
                 onNavigateBack = { navController.popBackStack() }
             )
         }
-
-
+        // --- GRAFO DE NAVEGACIÓN ANIDADO PARA ADMIN ---
+        // Se usa 'navigation' en lugar de 'composable'
+        navigation(
+            startDestination = "admin_dashboard_route", // La primera ruta del AdminNavigation
+            route = "admin_graph_route"                 // La ruta para navegar a TODO el módulo Admin
+        ) {
+            AdminRoutesGraph(navController) // Llamamos a la función que contiene el NavHost del administrador
+        }
     }
 }
