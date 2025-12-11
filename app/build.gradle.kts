@@ -1,7 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+<<<<<<< HEAD
+    id("com.google.devtools.ksp") version "1.9.0-1.0.12"
+=======
 //    alias(libs.plugins.kotlin.compose)
+>>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
 }
 
 android {
@@ -70,6 +74,17 @@ dependencies {
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.ui.graphics)
 
+<<<<<<< HEAD
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
+
+    // Coil
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
+=======
+>>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
     // Tests
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

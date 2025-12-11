@@ -37,7 +37,12 @@ fun PantallaPrincipal(navController: NavController) {
             .background(colors.white)
             .padding(0.dp, 16.dp)
             .verticalScroll(rememberScrollState()),
+<<<<<<< HEAD
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+=======
         horizontalAlignment = Alignment.CenterHorizontally
+>>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
     ) {
         Text(
             text = "GamarraAQP",
@@ -65,6 +70,14 @@ fun PantallaPrincipal(navController: NavController) {
             icon = true,
             onClick = { navController.navigate(Routes.PRODUCTS) }
         )
+<<<<<<< HEAD
+        PrimaryButton(
+            text = "Admin",
+            icon = true,
+            onClick = { navController.navigate(Routes.ADMIN_HUB) }
+        )
+=======
+>>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
     }
 }
 

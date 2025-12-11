@@ -1,7 +1,11 @@
 [versions]
 datastore-preferences = "1.1.7"
 kotlin = "1.9.24"
+<<<<<<< HEAD
+android-gradle-plugin = "8.13.1"
+=======
 android-gradle-plugin = "8.11.2"
+>>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
 
 core-ktx = "1.12.0"
 lifecycle-runtime = "2.6.2"

@@ -33,12 +33,21 @@ fun ProductsBottomBar(navController: NavController) {
 
     val items = listOf(
         Routes.PRODUCTS to R.drawable.home,
+<<<<<<< HEAD
+        Routes.MY_ORDERS to R.drawable.favorite, // Actualizado
+        Routes.CART to R.drawable.cart,
+        Routes.PROFILE to R.drawable.config
+    )
+
+    val implementedRoutes = listOf(Routes.PRODUCTS, Routes.PROFILE, Routes.CART, Routes.MY_ORDERS) // Actualizado
+=======
         "favoritos" to R.drawable.favorite,
         "carrito" to R.drawable.cart,
         Routes.PROFILE to R.drawable.config
     )
 
     val implementedRoutes = listOf(Routes.PRODUCTS, Routes.PROFILE)
+>>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
 
     Box(
         modifier = Modifier
