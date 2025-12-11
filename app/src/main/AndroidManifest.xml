@@ -3,11 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tiendaidnp">
 
-<<<<<<< HEAD
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-=======
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

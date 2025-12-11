@@ -1,6 +1,5 @@
 package com.example.tiendaidnp.ui.viewmodel
 
-<<<<<<< HEAD
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,24 +22,10 @@ class ProductsViewModel(application: Application) : AndroidViewModel(application
     init {
         val productDao = AppDatabase.getDatabase(application).productDao()
         productRepository = ProductRepository(productDao, application)
-=======
-import androidx.lifecycle.ViewModel
-import com.example.tiendaidnp.data.repository.ProductRepository
-import com.example.tiendaidnp.data.model.Product
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-
-class ProductsViewModel : ViewModel() {
-    private val _products = MutableStateFlow<List<Product>>(emptyList())
-    val products: StateFlow<List<Product>> get() = _products
-
-    init {
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
         loadProducts()
     }
 
     private fun loadProducts() {
-<<<<<<< HEAD
         productRepository.allProducts
             .onEach { productList ->
                 _products.value = productList
@@ -56,8 +41,5 @@ class ProductsViewModel : ViewModel() {
         viewModelScope.launch {
             productRepository.deleteProduct(productId)
         }
-=======
-        _products.value = ProductRepository.getProducts()
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
     }
 }

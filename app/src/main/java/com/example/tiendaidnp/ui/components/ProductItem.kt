@@ -3,10 +3,7 @@ package com.example.tiendaidnp.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-<<<<<<< HEAD
 import androidx.compose.foundation.clickable
-=======
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,7 +23,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-<<<<<<< HEAD
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
@@ -34,24 +30,13 @@ import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.tiendaidnp.data.model.Product
 import com.example.tiendaidnp.ui.navigation.Routes
-=======
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.dp
-import com.example.tiendaidnp.data.model.Product
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
 import com.example.tiendaidnp.ui.theme.AppTheme
 import com.example.tiendaidnp.ui.theme.Neutral50
 import com.example.tiendaidnp.ui.theme.black
 import com.example.tiendaidnp.ui.theme.white
 
 @Composable
-<<<<<<< HEAD
 fun ProductItem(navController: NavController, producto: Product) {
-=======
-fun ProductItem(producto: Product) {
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
     val colors = AppTheme.customColors
     Column(
         modifier = Modifier
@@ -63,13 +48,9 @@ fun ProductItem(producto: Product) {
             )
             .clip(RoundedCornerShape(12.dp))
             .background(
-<<<<<<< HEAD
                 if (producto.inOffer) colors.primary30 else colors.primary10
             )
             .clickable { navController.navigate(Routes.PRODUCT_DETAIL.replace("{productId}", producto.id.toString())) },
-=======
-                if (producto.inOffer) colors.primary30 else colors.primary10),
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Imagen del producto
@@ -80,11 +61,7 @@ fun ProductItem(producto: Product) {
                 .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
         ) {
             Image(
-<<<<<<< HEAD
                 painter = rememberAsyncImagePainter(producto.imageUri),
-=======
-                painter = painterResource(id = producto.imagenId),
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
                 contentDescription = producto.name,
                 modifier = Modifier
                     .fillMaxWidth()

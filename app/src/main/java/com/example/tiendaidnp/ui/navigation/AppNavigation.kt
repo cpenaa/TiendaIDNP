@@ -4,24 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-<<<<<<< HEAD
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.tiendaidnp.ui.screens.*
-=======
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.example.tiendaidnp.ui.screens.PantallaPrincipal
-import com.example.tiendaidnp.ui.screens.PerfilScreen
-import com.example.tiendaidnp.ui.screens.ProductsScreen
-import com.example.tiendaidnp.ui.screens.ContactFormScreen
-import com.example.tiendaidnp.ui.screens.EditProfileScreen
-import com.example.tiendaidnp.ui.screens.SettingsScreen
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
 import com.example.tiendaidnp.ui.viewmodel.ThemeViewModel
 import com.example.tiendaidnp.ui.viewmodel.ThemeViewModelFactory
 
@@ -32,7 +20,6 @@ object Routes {
     const val CONTACT = "contacto"
     const val EDIT_PROFILE = "edit_profile"
     const val THEME_SETTINGS = "theme_settings"
-<<<<<<< HEAD
     const val ADMIN_HUB = "admin_hub"
     const val ADMIN_ADD_PRODUCT = "admin_add_product"
     const val ADMIN_PRODUCT_LIST = "admin_product_list"
@@ -42,8 +29,6 @@ object Routes {
     const val ADMIN_ORDER_LIST = "admin_order_list"
     const val MY_ORDERS = "my_orders"
     const val ADMIN_SEND_NOTIFICATION = "admin_send_notification"
-=======
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
 }
 @Composable
 fun AppNavigation() {
@@ -94,7 +79,6 @@ fun AppNavigation() {
             )
         }
 
-<<<<<<< HEAD
         // Pantalla de Administrador para agregar productos
         composable(Routes.ADMIN_ADD_PRODUCT) {
             AdminAddProductScreen()
@@ -149,8 +133,3 @@ fun AppNavigation() {
         }
     }
 }
-=======
-
-    }
-}
->>>>>>> 5bf2d1506f5e2a78fb77fb3db14961a213ced41e
