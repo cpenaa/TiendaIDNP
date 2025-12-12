@@ -16,27 +16,44 @@ El proyecto sigue una arquitectura de IU declarativa moderna de Android con Jetp
 
 ```
 app/
-└─ java/com/example/tiendaidnp/
-│   ├─ data/
-│   │   ├─ model/             # Este subpaquete contiene los modelos de datos, como la clase `UserProfile`.
-│   │   ├─ datastore/         # Este subpaquete se utiliza para el almacenamiento de datos locales.
-│   │   ├─ repository/        # Este subpaquete contiene repositorios, que se utilizan para abstraer las fuentes de datos.
-│   ├─ ui/                    # Este paquete contiene las clases relacionadas con la interfaz de usuario.
-│   │   ├─ screens/           # Pantallas de la app (Productos, Principal, etc.)
-│   │   ├─ previews/          # Este subpaquete contiene vistas previas de Composable para desarrollo y pruebas.
-│   │   ├─ viewmodel/         # Este subpaquete contiene los ViewModels, que contienen y administran datos relacionados con la interfaz de usuario.
-│   │   ├─ components/        # Componentes reutilizables (ProductoItem, TopBar, BottomBar)
-│   │   └─ navigation/        # AppNavigation.kt: Este subpaquete gestiona la navegación entre pantallas.
-│   ├─ model/
-│   │   └─ Producto.kt        # Data class Producto
-│   ├─ theme/
-│   │   ├─ Color.kt
-│   │   ├─ Theme.kt
-│   │   └─ Type.kt
-│   └─ MainActivity.kt
-res/
-├─ drawable/                  # Imágenes y vectores (webp, xml)
-└─ values/                     # Colores, themes, strings
+└── src/
+    └── main/
+        ├── java/com/example/tiendaidnp/
+        │   ├── data/
+        │   │   ├── db/
+        │   │   │   ├── dao/
+        │   │   │   └── entities/
+        │   │   │       └── ProductDB.kt   # Entidad de Room para la tabla de productos.
+        │   │   ├── datastore/             # Para almacenamiento simple con DataStore.
+        │   │   ├── model/
+        │   │   └── repository/            # Repositorios que abstraen el origen de los datos.
+        │   │
+        │   ├── ui/
+        │   │   ├── components/            # Componentes de UI reutilizables.
+        │   │   │   └── buttons/
+        │   │   ├── navigation/
+        │   │   │   └── AppNavigation.kt   # Grafo de navegación y rutas de la app.
+        │   │   ├── previews/
+        │   │   ├── screens/               # Composables para cada pantalla.
+        │   │   │   ├── admin/
+        │   │   │   ├── cart/
+        │   │   │   ├── catalog/
+        │   │   │   ├── profile/
+        │   │   │   └── PantallaPrincipal.kt
+        │   │   │
+        │   │   ├── theme/                 # Tema personalizado para la UI.
+        │   │   └── viewmodel/             # ViewModels que gestionan la lógica y el estado.
+        │   │
+        │   ├── utils/                     # Módulos de inyección de dependencias (Hilt/Koin).
+        │   │
+        │   └── MainActivity.kt            # Actividad principal y punto de entrada de la UI.
+        │
+        └── res/
+            ├── drawable/                  # Iconos, imágenes y otros recursos gráficos.
+            └── values/
+                ├── strings.xml            # Textos de la aplicación.
+                ├── colors.xml             # Paleta de colores.
+                └── themes.xml             # Estilos y temas de la aplicación.
 ```
 
 ## Cómo construir
@@ -64,17 +81,10 @@ Puedes construir el proyecto usando Android Studio o ejecutando el siguiente com
 
 ---
 
-## Contribuciones
 
-Este proyecto sirve como plantilla base de e-commerce. Mejoras posibles:
-- Mejorar soporte responsivo y grid dinámico
-- ...
+## Integrantes del proyecto
 
----
-
-## Integrantes del proyecto (En construcción)
-
-- **Christian Peña** - Arquitectura, integración de datos y diseño responsivo
+- **Christian Peña** - Arquitectura, Integración de datos, Estandarización de componentes y tema, Personalización
 - **Shirley Chambi** - Desarrollo de UI y navegación con Jetpack Compose
 - **Victor Quispe** - Soporte de tema, pruebas en distintos dispositivos y optimización de layouts
 - **Angel Caceres** - Integración de DataStore y almacenamiento local

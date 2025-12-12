@@ -10,6 +10,20 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.tiendaidnp.ui.screens.*
+import com.example.tiendaidnp.ui.screens.admin.AdminAddProductScreen
+import com.example.tiendaidnp.ui.screens.admin.AdminEditProductScreen
+import com.example.tiendaidnp.ui.screens.admin.AdminHubScreen
+import com.example.tiendaidnp.ui.screens.admin.AdminOrderListScreen
+import com.example.tiendaidnp.ui.screens.admin.AdminProductListScreen
+import com.example.tiendaidnp.ui.screens.admin.AdminSendNotificationScreen
+import com.example.tiendaidnp.ui.screens.cart.CartScreen
+import com.example.tiendaidnp.ui.screens.cart.MyOrdersScreen
+import com.example.tiendaidnp.ui.screens.catalog.ProductDetailScreen
+import com.example.tiendaidnp.ui.screens.catalog.ProductsScreen
+import com.example.tiendaidnp.ui.screens.profile.ContactFormScreen
+import com.example.tiendaidnp.ui.screens.profile.EditProfileScreen
+import com.example.tiendaidnp.ui.screens.profile.PerfilScreen
+import com.example.tiendaidnp.ui.screens.profile.SettingsScreen
 import com.example.tiendaidnp.ui.viewmodel.ThemeViewModel
 import com.example.tiendaidnp.ui.viewmodel.ThemeViewModelFactory
 

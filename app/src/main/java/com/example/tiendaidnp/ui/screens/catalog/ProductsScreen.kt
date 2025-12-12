@@ -1,4 +1,4 @@
-package com.example.tiendaidnp.ui.screens
+package com.example.tiendaidnp.ui.screens.catalog
 
 import android.app.Application
 import androidx.compose.foundation.layout.*

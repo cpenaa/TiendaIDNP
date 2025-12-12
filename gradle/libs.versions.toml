@@ -1,7 +1,7 @@
 [versions]
 datastore-preferences = "1.1.7"
 kotlin = "1.9.24"
-android-gradle-plugin = "8.13.1"
+android-gradle-plugin = "8.13.2"
 
 core-ktx = "1.12.0"
 lifecycle-runtime = "2.6.2"
@@ -18,6 +18,7 @@ navigation-compose = "2.9.5"
 runtime = "1.9.3"
 compose-navigation = "1.5.3"
 ui-graphics = "1.9.4"
+foundation = "1.10.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
@@ -52,3 +53,4 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 androidx-compose-navigation = { group = "androidx.wear.compose", name = "compose-navigation", version.ref = "compose-navigation" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "ui-graphics" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }

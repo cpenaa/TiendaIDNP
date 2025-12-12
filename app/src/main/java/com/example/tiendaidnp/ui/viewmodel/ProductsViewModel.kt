@@ -3,7 +3,7 @@ package com.example.tiendaidnp.ui.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tiendaidnp.data.model.AppDatabase
+import com.example.tiendaidnp.data.db.AppDatabase
 import com.example.tiendaidnp.data.model.Product
 import com.example.tiendaidnp.data.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow

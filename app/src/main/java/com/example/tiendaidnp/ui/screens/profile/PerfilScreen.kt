@@ -1,4 +1,4 @@
-package com.example.tiendaidnp.ui.screens
+package com.example.tiendaidnp.ui.screens.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -100,7 +100,12 @@ fun PerfilScreen(navController: NavController) {
                 // --- Secciones ---
                 PerfilSection(
                     title = "Pedidos",
-                    items = listOf("Pedidos recientes", "Historial de compras")
+                    items = listOf("Pedidos recientes", "Historial de compras"),
+                    onItemClick = { item ->
+                        if (item == "Pedidos recientes") {
+                            navController.navigate(Routes.MY_ORDERS)
+                        }
+                    }
                 )
                 PerfilSection(
                     title = "Configuración",

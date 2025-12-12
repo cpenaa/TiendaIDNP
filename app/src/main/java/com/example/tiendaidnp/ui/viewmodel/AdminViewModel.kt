@@ -4,8 +4,8 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tiendaidnp.data.model.AppDatabase
-import com.example.tiendaidnp.data.model.ProductDB
+import com.example.tiendaidnp.data.db.AppDatabase
+import com.example.tiendaidnp.data.db.entities.ProductDB
 import com.example.tiendaidnp.data.repository.ProductRepository
 import kotlinx.coroutines.launch
 import java.io.File

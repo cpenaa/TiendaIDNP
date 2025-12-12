@@ -1,10 +1,18 @@
-package com.example.tiendaidnp.data.model
+package com.example.tiendaidnp.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.tiendaidnp.data.db.entities.Cart
+import com.example.tiendaidnp.data.db.dao.CartDao
+import com.example.tiendaidnp.data.db.entities.CartItem
+import com.example.tiendaidnp.data.model.Order
+import com.example.tiendaidnp.data.db.dao.OrderDao
+import com.example.tiendaidnp.data.db.entities.OrderItem
+import com.example.tiendaidnp.data.db.entities.ProductDB
+import com.example.tiendaidnp.data.db.dao.ProductDao
 
 @Database(entities = [ProductDB::class, Cart::class, CartItem::class, Order::class, OrderItem::class], version = 5)
 @TypeConverters(Converters::class)

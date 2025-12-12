@@ -1,8 +1,11 @@
-package com.example.tiendaidnp.data.model
+package com.example.tiendaidnp.data.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.tiendaidnp.data.model.Order
+import com.example.tiendaidnp.data.db.entities.OrderItem
+import com.example.tiendaidnp.data.model.OrderStatus
 import kotlinx.coroutines.flow.Flow
 
 @Dao

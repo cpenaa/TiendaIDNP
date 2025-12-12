@@ -1,9 +1,8 @@
-package com.example.tiendaidnp.ui.screens
+package com.example.tiendaidnp.ui.screens.catalog
 
 import android.app.Application
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost

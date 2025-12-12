@@ -1,6 +1,7 @@
-package com.example.tiendaidnp.data.model
+package com.example.tiendaidnp.data.db
 
 import androidx.room.TypeConverter
+import com.example.tiendaidnp.data.model.OrderStatus
 
 class Converters {
     @TypeConverter

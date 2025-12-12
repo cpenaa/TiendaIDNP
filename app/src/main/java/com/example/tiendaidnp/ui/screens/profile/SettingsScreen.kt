@@ -1,6 +1,5 @@
-package com.example.tiendaidnp.ui.screens
+package com.example.tiendaidnp.ui.screens.profile
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -45,7 +44,10 @@ fun SettingsScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = colors.white)
+                colors = CardDefaults.cardColors(containerColor = colors.white),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp
+                )
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     ThemeMode.values().forEach { mode ->
@@ -59,7 +61,13 @@ fun SettingsScreen(
                         ) {
                             RadioButton(
                                 selected = isSelected,
-                                onClick = { viewModel.updateTheme(mode) }
+                                onClick = { viewModel.updateTheme(mode) },
+                                colors = RadioButtonDefaults.colors(
+                                    selectedColor = colors.primary40,
+                                    unselectedColor = colors.neutral80,
+                                    disabledSelectedColor = colors.primary10,
+                                    disabledUnselectedColor = colors.neutral40
+                                )
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(

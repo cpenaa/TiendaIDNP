@@ -2,10 +2,10 @@ package com.example.tiendaidnp.data.repository
 
 import com.example.tiendaidnp.data.model.CartItemWithDetails
 import com.example.tiendaidnp.data.model.Order
-import com.example.tiendaidnp.data.model.OrderDao
-import com.example.tiendaidnp.data.model.OrderItem
+import com.example.tiendaidnp.data.db.dao.OrderDao
+import com.example.tiendaidnp.data.db.entities.OrderItem
 import com.example.tiendaidnp.data.model.OrderStatus
-import com.example.tiendaidnp.data.model.ProductDao
+import com.example.tiendaidnp.data.db.dao.ProductDao
 import kotlinx.coroutines.flow.Flow
 
 class OrderRepository(private val orderDao: OrderDao, private val productDao: ProductDao) {

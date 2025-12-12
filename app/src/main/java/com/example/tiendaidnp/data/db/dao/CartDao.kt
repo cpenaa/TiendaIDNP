@@ -1,9 +1,12 @@
-package com.example.tiendaidnp.data.model
+package com.example.tiendaidnp.data.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.tiendaidnp.data.db.entities.Cart
+import com.example.tiendaidnp.data.db.entities.CartItem
+import com.example.tiendaidnp.data.model.CartItemWithDetails
 import kotlinx.coroutines.flow.Flow
 
 @Dao

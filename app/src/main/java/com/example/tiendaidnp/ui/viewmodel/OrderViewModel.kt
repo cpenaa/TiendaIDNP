@@ -3,7 +3,7 @@ package com.example.tiendaidnp.ui.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tiendaidnp.data.model.AppDatabase
+import com.example.tiendaidnp.data.db.AppDatabase
 import com.example.tiendaidnp.data.model.Order
 import com.example.tiendaidnp.data.model.OrderStatus
 import com.example.tiendaidnp.data.repository.OrderRepository

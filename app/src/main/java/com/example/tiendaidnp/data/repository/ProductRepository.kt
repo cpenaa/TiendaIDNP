@@ -2,8 +2,8 @@ package com.example.tiendaidnp.data.repository
 
 import android.content.Context
 import com.example.tiendaidnp.data.model.Product
-import com.example.tiendaidnp.data.model.ProductDao
-import com.example.tiendaidnp.data.model.ProductDB
+import com.example.tiendaidnp.data.db.dao.ProductDao
+import com.example.tiendaidnp.data.db.entities.ProductDB
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

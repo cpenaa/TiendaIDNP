@@ -1,4 +1,4 @@
-package com.example.tiendaidnp.data.model
+package com.example.tiendaidnp.data.db.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

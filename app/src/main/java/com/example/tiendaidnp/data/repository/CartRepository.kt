@@ -1,8 +1,8 @@
 package com.example.tiendaidnp.data.repository
 
-import com.example.tiendaidnp.data.model.Cart
-import com.example.tiendaidnp.data.model.CartDao
-import com.example.tiendaidnp.data.model.CartItem
+import com.example.tiendaidnp.data.db.entities.Cart
+import com.example.tiendaidnp.data.db.dao.CartDao
+import com.example.tiendaidnp.data.db.entities.CartItem
 import com.example.tiendaidnp.data.model.CartItemWithDetails
 import kotlinx.coroutines.flow.Flow
 

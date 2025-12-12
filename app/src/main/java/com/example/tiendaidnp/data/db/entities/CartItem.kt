@@ -1,21 +1,20 @@
-package com.example.tiendaidnp.data.model
+package com.example.tiendaidnp.data.db.entities
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "order_items",
+    tableName = "cart_items",
     foreignKeys = [
-        ForeignKey(entity = Order::class, parentColumns = ["id"], childColumns = ["orderId"], onDelete = ForeignKey.CASCADE),
+        ForeignKey(entity = Cart::class, parentColumns = ["id"], childColumns = ["cartId"], onDelete = ForeignKey.CASCADE),
         ForeignKey(entity = ProductDB::class, parentColumns = ["id"], childColumns = ["productId"], onDelete = ForeignKey.CASCADE)
     ]
 )
-data class OrderItem(
+data class CartItem(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val orderId: Long,
+    val cartId: Long,
     val productId: Long,
-    val quantity: Int,
-    val price: Double
+    val quantity: Int
 )

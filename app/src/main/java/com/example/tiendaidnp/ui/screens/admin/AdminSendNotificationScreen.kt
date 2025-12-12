@@ -1,4 +1,4 @@
-package com.example.tiendaidnp.ui.screens
+package com.example.tiendaidnp.ui.screens.admin
 
 import android.Manifest
 import android.content.pm.PackageManager
