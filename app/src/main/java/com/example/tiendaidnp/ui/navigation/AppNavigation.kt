@@ -123,7 +123,11 @@ fun AppNavigation() {
             arguments = listOf(navArgument("productId") { type = NavType.LongType })
         ) {
             val productId = it.arguments?.getLong("productId") ?: 0
-            ProductDetailScreen(navController = navController, productId = productId)
+            ProductDetailScreen(
+                navController = navController,
+                productId = productId,
+                onNavigateBack = { navController.popBackStack()}
+                    )
         }
 
         // Pantalla del carrito

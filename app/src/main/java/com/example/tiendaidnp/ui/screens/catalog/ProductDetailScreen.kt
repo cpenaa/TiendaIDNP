@@ -22,6 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.tiendaidnp.ui.components.ProductsBottomBar
+import com.example.tiendaidnp.ui.components.TitleBackTopBar
 import com.example.tiendaidnp.ui.components.buttons.PrimaryButton
 import com.example.tiendaidnp.ui.viewmodel.CartViewModel
 import com.example.tiendaidnp.ui.viewmodel.CartViewModelFactory
@@ -30,7 +31,10 @@ import com.example.tiendaidnp.ui.viewmodel.ProductsViewModelFactory
 import kotlinx.coroutines.launch
 
 @Composable
-fun ProductDetailScreen(navController: NavController, productId: Long) {
+fun ProductDetailScreen(
+    navController: NavController,
+    productId: Long,
+    onNavigateBack: () -> Unit) {
     val application = LocalContext.current.applicationContext as Application
     val productsViewModel: ProductsViewModel = viewModel(factory = ProductsViewModelFactory(application))
     val cartViewModel: CartViewModel = viewModel(factory = CartViewModelFactory(application))
@@ -40,6 +44,12 @@ fun ProductDetailScreen(navController: NavController, productId: Long) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold(
+        topBar = {
+            TitleBackTopBar(
+                title = "Detalle Prenda",
+                onBackClick = onNavigateBack
+            )
+        },
         snackbarHost = { SnackbarHost(snackbarHostState) },
         bottomBar = { ProductsBottomBar(navController = navController) }
     ) {
