@@ -5,23 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
-import com.example.tiendaidnp.workers.OfferWorker
-import java.util.concurrent.TimeUnit
 import com.example.tiendaidnp.ui.navigation.AppNavigation
 import com.example.tiendaidnp.ui.theme.TuAppTheme
 import com.example.tiendaidnp.ui.viewmodel.ThemeViewModel
 
 class MainActivity : ComponentActivity() {
     private lateinit var themeViewModel: ThemeViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setupPeriodicWork()
-
         themeViewModel = ThemeViewModel(this)
         setContent {
             val themeMode by themeViewModel.themeMode.collectAsState()
@@ -30,17 +21,5 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-    private fun setupPeriodicWork() {
-        val workRequest = PeriodicWorkRequestBuilder<OfferWorker>(
-            15,
-            TimeUnit.MINUTES
-        ).build()
-
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "CheckOffersWork",
-            ExistingPeriodicWorkPolicy.KEEP,
-            workRequest
-        )
-    }
 }
+
