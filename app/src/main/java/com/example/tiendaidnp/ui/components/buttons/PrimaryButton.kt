@@ -27,7 +27,7 @@ fun PrimaryButton(
     text: String,
     type: ButtonType = ButtonType.BIG,
     icon: Boolean = false,
-    enabled: Boolean = true, // 👈 Nuevo parámetro
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     val height = when (type) {
@@ -35,7 +35,6 @@ fun PrimaryButton(
         ButtonType.BIG -> 48.dp
     }
 
-    // 🔹 Colores del botón (activo e inactivo)
     val backgroundColor = if (enabled) {
         Pink40
     } else {
@@ -44,7 +43,7 @@ fun PrimaryButton(
 
     Button(
         onClick = onClick,
-        enabled = enabled, // 👈 Controla el estado
+        enabled = enabled,
         colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
         modifier = Modifier
             .height(height)

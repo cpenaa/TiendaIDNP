@@ -62,20 +62,23 @@ fun PantallaPrincipal(navController: NavController) {
                 .fillMaxWidth(),
             contentScale = ContentScale.FillWidth
         )
-        Box(
-            modifier = Modifier.padding(0.dp, 16.dp)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             PrimaryButton(
-                text = "Empezar",
+                text = "Usuario",
                 icon = true,
                 onClick = { navController.navigate(Routes.PRODUCTS) }
             )
+            PrimaryButton(
+                text = "Administrador",
+                icon = true,
+                onClick = { navController.navigate(Routes.ADMIN_HUB) }
+            )
         }
-        PrimaryButton(
-            text = "Admin",
-            icon = true,
-            onClick = { navController.navigate(Routes.ADMIN_HUB) }
-        )
     }
 }
 
